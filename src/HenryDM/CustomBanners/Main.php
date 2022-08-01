@@ -35,6 +35,7 @@ class Main extends PluginBase implements Listener {
             $this->config->set("banner-timeout", 0);
             $this->config->save();
         }
+    }
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
 		$player = $sender->getName();
 		switch($command->getName()){
