@@ -4,19 +4,24 @@ declare(strict_types=1);
 
 namespace HenryDM\CustomBanners;
 
+#Pocketmine Libs
+use pocketmine\Server;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\Player;
-use pocketmine\Server;
+use pocketmine\player\Player;
 use pocketmine\utils\Config;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\item\Item;
+
+#Plugin Libs
 use jojoe77777\FormAPI\SimpleForm;
 use pocketmine\nbt\JsonNbtParser;
 
-class Main extends PluginBase implements Listener{
-    public function onEnable() {
+class Main extends PluginBase implements Listener {
+
+    public function onEnable() : void {
+	    
         $this->patterns = ['gra', 'gru', 'bri', 'hh','hhb','vh','vhr','ts','bs','ls','rs','ld','rud','lud','rd','cr','dls','drs','sc','cs','ms','tl','bl','tr','br','tt','bt','mr','mc','bts','tts','ss','bo','cbo','flo','cre','sku','moj'];
         $this->saveResource("config.yml");
         $this->saveResource("players-data.yml");
@@ -89,7 +94,7 @@ class Main extends PluginBase implements Listener{
                 }else{
                     $timeout = TRUE;
                 }
-                if($sender->hasPermission("simplebanner.command.notimeout") or $timeout){
+                if($sender->hasPermission("custombanner.use") or $timeout){
                     if(isset($args[0])){
                         if(!in_array(strtoupper($args[0]), $this->colors)){
                             $sender->sendMessage(str_replace("{x}", $args[0], self::getTranslation("Color_not_found")).'§r');
