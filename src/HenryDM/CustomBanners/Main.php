@@ -15,7 +15,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\item\Item;
 
 #Plugin Libs
-use HenryDM\CustomBanners\Libs\jojoe77777\FormAPI\SimpleForm;
+use HenryDM\CustomBanners\libs\jojoe77777\FormAPI\SimpleForm;
 use pocketmine\nbt\JsonNbtParser;
 
 class Main extends PluginBase implements Listener {
