@@ -1,0 +1,17 @@
+---
+name: CustomBanners
+main: HenryDM\CustomBanners\Main
+api: 4.0.0
+authors: [HenryDM,Invy55]
+description: [Simple plugin to create custom banners for PocketMine-MP]
+website: https://github.com/Henry12960
+commands:
+ banner:
+  description: Banner creation menu
+  default: op
+  permission: custombanners.use
+permissions:
+ custombanners.use:
+  description: Default command to customize banners
+  default: op
+...
