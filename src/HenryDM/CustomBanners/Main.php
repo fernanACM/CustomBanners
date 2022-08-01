@@ -53,17 +53,17 @@ class Main extends PluginBase implements Listener {
                 if($sender->hasPermission("custombanner.use") or $timeout){
                     if(isset($args[0])){
                         if(!in_array(strtoupper($args[0]), $this->colors)){
-                            $sender->sendMessage(str_replace("{x}", $args[0], self::getTranslation("Color_not_found")).'§r');
+                            $sender->sendMessage("Color not found");
                         }else{ 
                             $this->$player =  new \stdClass(); 
                             $this->layer($sender, strtolower($args[0]));
                         }
                     }else{
-                        $sender->sendMessage(self::getTranslation("Choose_background").'§r');
+                        $sender->sendMessage("Before, select a background color!");
                     }
                 }else{
                     $towait = $plconfig+$this->config->get("banner-timeout");
-                    $sender->sendMessage(str_replace("{x}", strval(intval($towait-microtime(TRUE))), self::getTranslation("Please_wait")).'§r');
+                    $sender->sendMessage("Please Wait...");
                 }
 			default:
 				return false;
