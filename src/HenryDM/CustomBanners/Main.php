@@ -19,14 +19,17 @@ use HenryDM\CustomBanners\libs\jojoe77777\FormAPI\SimpleForm;
 use pocketmine\nbt\JsonNbtParser;
 
 class Main extends PluginBase implements Listener {
+	
+    public Config $config;
+    public Config $playerdata;
+    public patterns = [];
 
-    public function onEnable() : void {
-	    
+    public function onEnable(): void{
         $this->patterns = ['gra', 'gru', 'bri', 'hh','hhb','vh','vhr','ts','bs','ls','rs','ld','rud','lud','rd','cr','dls','drs','sc','cs','ms','tl','bl','tr','br','tt','bt','mr','mc','bts','tts','ss','bo','cbo','flo','cre','sku','moj'];
         $this->saveResource("config.yml");
         $this->saveResource("players-data.yml");
-        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-        $this->playerdata = new Config($this->getDataFolder() . "players-data.yml", Config::YAML);
+        $this->config = new Config($this->getDataFolder() . "config.yml");
+        $this->playerdata = new Config($this->getDataFolder() . "players-data.yml");
         if($this->config->get("banner-number") == FALSE or !is_numeric($this->config->get("banner-number")) or $this->config->get("banner-number") > 16 or $this->config->get("banner-number") < 1){
             $this->config->set("banner-number", 16);
             $this->config->save();
