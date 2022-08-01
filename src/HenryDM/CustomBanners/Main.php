@@ -85,7 +85,7 @@ class Main extends PluginBase implements Listener {
                     }elseif($result == 0){
                         $playern = $player->getName();
                         $to_text = '§'.$this->colortags[strtoupper($this->$playern->color)].str_replace("{x}", $this->$playern->color, self::getTranslation("Pattern_name"));
-                        $player->sendMessage("Banner Finished!"));
+                        $player->sendMessage("Banner Finished!");
                         $item = Item::fromString("minecraft:banner:".$this->bannerc[strtoupper($this->$playern->color)]);
                         $item->setCount(intval($this->config->get("banner-number")));
                         $item->setNamedTag(JsonNbtParser::parseJSON("{display:{Name:".$to_text."},BlockEntityTag:{Base:".$this->bannerc[strtoupper($this->$playern->color)].",Patterns:[".substr($this->$playern->all, 0, -1)."]}}"));
